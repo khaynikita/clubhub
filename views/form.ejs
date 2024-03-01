@@ -1,0 +1,112 @@
+
+
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    
+
+    <link rel="stylesheet" href="/stylesheets/cul.css">
+
+</head>
+
+<body>
+
+    <header >
+        <div id="nav">
+            <a class="navlink" href="/"><img src="/images/bciit.png" style="color: white;"></a>
+            <a  class="navlink" href="/technical">TECHNICAL</a>
+            <a class="navlink" href="/eco">ECO</a>
+            <a class="navlink"  href="/sports">SPORTS</a>
+            <a class="navlink "  href="/cultural">CULTURAL</a>
+        </div>
+    </header>
+    <div class="container " style="padding-top: 85px;">
+        <h4 class="bg-success">Request To Join...</h4>
+        <div class="row bg-white rounded">
+            <div class="col-6 logo p-5 " >  
+                <img src="/images/join_logo.jpeg" alt="" class="img-fluid rounded" style="height: 100%; aspect-ratio: 1/1; object-fit: cover;">
+            </div>
+            <div class=" col-6 form d-flex align-items-center" style="background-color: rgb(236, 63, 54); border-radius: .5rem;">
+            <form class="w-100 p-5 " action="/" id="form">
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row mb-4">
+                    <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="firstname" name="first" class="form-control"  placeholder="First name" />
+                        <!-- <label class="form-label" for="form6Example1">First name</label> -->
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="lastname" name="last" class="form-control" placeholder="last name" />
+                        <!-- <label class="form-label" for="form6Example2">Last name</label> -->
+                        </div>
+                    </div>
+                    </div>
+                
+                    <!-- Text input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="class" class="form-control" placeholder="Class" name="class" />
+                    <!-- <label class="form-label" for="form6Example3">Company name</label> -->
+                    </div>
+                
+                    <!-- Text input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="rollno" class="form-control" name="rollno" placeholder="Roll no(full)" />
+                    <!-- <label class="form-label" for="form6Example4">Address</label> -->
+                    </div>
+                
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="email" id="form6Example5" class="form-control" name="email" placeholder="Email"  />
+                    <!-- <label class="form-label" for="form6Example5">Email</label> -->
+                    </div>
+                
+                    <!-- Number input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="number" id="form6Example6" class="form-control"  placeholder="Phone" name="pnum" />
+                    <!-- <label class="form-label" for="form6Example6">Phone</label> -->
+                    </div>
+
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <select class="form-select form-control" aria-label="Default select example" name="club" >
+                        <option selected value="">Select Club</option>
+                        <option value="Technical">Technical</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Eco">Eco</option>
+                        <option value="Organizing">Organizing Comittee (cultural)</option>
+                        <option value="Dance">Dance Club (Athulya)</option>
+                        <option value="Art">Art Club (Chitiraansh)</option>
+                        <option value="Music">Music Club (Anukriti)</option>
+                        <option value="Literature">Literature Club (Abhivyakti)</option>
+                        <option value="Drama">Drama Club (Rangmanch)</option>
+                      </select>
+                    </div>
+
+                    <!-- Message input -->
+                    <div data-mdb-input-init class="form-outline mb-4" >
+                    <textarea class="form-control" id="form6Example7" rows="4" placeholder="Tell about experience in the field" name="exp"></textarea>
+                    <!-- <label class="form-label" for="form6Example7">Additional information</label> -->
+                    </div>
+                
+                
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-block mb-4 w-100 bg-black text-white" >Send Join</button>
+            </form>
+        </div>
+
+</div>
+</div>
+    
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="/javascripts/script-club.js"></script>
+</body>
+
+</html>
