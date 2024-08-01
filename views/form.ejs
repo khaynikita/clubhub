@@ -1,0 +1,115 @@
+<%- layout('/boilerplate/boilerplate2.ejs') %>
+
+
+    <div class="container " style="padding-top: 85px;">
+        <h4 class="bg-success">Request To Join...</h4>
+        <div class="row bg-white rounded">
+            <div class="col-md-6 logo p-5 " >  
+                <img src="/images/join_logo.jpeg" alt="" class="img-fluid rounded" style="height: 100%; aspect-ratio: 1/1; object-fit: cover;">
+            </div>
+            <div class=" col-md-6 form d-flex align-items-center" style="background-color: rgb(236, 63, 54); border-radius: .5rem;">
+              <form class="w-100 p-5 needs-validation " action="/join/request/<%=id%>" id="form" method="POST" novalidate>
+                <div class="row">
+                  <div class="col">
+                    <%- include('./partials/flash.ejs') %>
+                  </div>
+                </div>
+             
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row mb-4">
+                    <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="firstname"  class="form-control"  placeholder="First name" name="first_name"required/>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                        <!-- <label class="form-label" for="form6Example1">First name</label> -->
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div data-mdb-input-init class="form-outline">
+                        <input type="text" id="lastname"  class="form-control" placeholder="last name" name="last_name"required/>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                        <!-- <label class="form-label" for="form6Example2">Last name</label> -->
+                        </div>
+                    </div>
+                    </div>
+                
+                    <!-- Text input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="class" class="form-control" placeholder="Class" name="class"required />
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    <!-- <label class="form-label" for="form6Example3">Company name</label> -->
+                    </div>
+
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="class" class="form-control" placeholder="Semester" name="semester"required />
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    <!-- <label class="form-label" for="form6Example3">Company name</label> -->
+                    </div>
+                
+                    <!-- Text input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="rollno" class="form-control" name="roll_no" placeholder="Roll no(full)"required />
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    <!-- <label class="form-label" for="form6Example4">Address</label> -->
+                    </div>
+                
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="email" id="form6Example5" class="form-control" name="email" placeholder="Email" required />
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    <!-- <label class="form-label" for="form6Example5">Email</label> -->
+                    </div>
+                
+                    <!-- Number input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="text" id="form6Example6" class="form-control"  placeholder="Phone" name="phone"required />
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    <!-- <label class="form-label" for="form6Example6">Phone</label> -->
+                    </div>
+
+                    <!-- <div data-mdb-input-init class="form-outline mb-4">
+                    <select class="form-select form-control" aria-label="Default select example" name="club" required>
+                        <option selected value="">Select Club</option>
+                        <option value="Technical">Technical</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Eco">Eco</option>
+                        <option value="Cultural">Cultural</option>
+                      </select>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    </div> -->
+                     
+
+                    <!-- Message input -->
+                    <div data-mdb-input-init class="form-outline mb-4" >
+                    <textarea class="form-control" id="form6Example7" rows="4" placeholder="Tell about experience in the field" name="exp"required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    <!-- <label class="form-label" for="form6Example7">Additional information</label> -->
+                    </div>
+                
+                
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-block mb-4 w-100 bg-black text-white" >Send Join Request</button>
+            </form>
+        </div>
+
+</div>
+</div>
+    

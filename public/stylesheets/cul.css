@@ -1,0 +1,81 @@
+
+body{
+    background-color: rgb(29, 26, 26);
+    color: white;
+    height: 100vh;
+}
+#nav{
+    height: 80px;
+    width:100%;
+    display: flex;
+    align-items: center;
+    padding:0 150px ;
+    gap: 40px;
+    position: fixed;
+    backdrop-filter: blur(14px) saturate(112%);
+    -webkit-backdrop-filter: blur(14px) saturate(112%);
+    background-color: rgba(59, 59, 62, 0.81);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    z-index: 99;
+  }
+  #nav img{
+    height:60px;
+    /* mix-blend-mode: color-burn; */
+  }
+  #nav h4{
+    font-weight: 500;
+  }
+
+  #nav a{
+    text-decoration: none;
+    color: white;
+  }
+  .active{
+    color: greenyellow !important;
+  }
+
+  .scroll{
+    background-color: rgba(69, 173, 69, 0.8);
+  }
+
+  .bg-success{
+    background-color: rgb(93, 185, 93)!important;
+    padding: 20px 30px;
+    border-radius: .5rem;
+  }
+  .bg-danger{
+    background-color: rgb(192, 83, 83)!important;
+    padding: 20px 30px;
+    border-radius: .5rem;
+  }
+  .bg-purple{
+    background-color: rgb(158, 59, 186)!important;
+    padding: 20px 30px;
+    border-radius: .5rem;
+  }
+
+  .footer{
+    backdrop-filter: blur(14px) saturate(112%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(112%) !important;;
+    background-color: rgba(59, 59, 62, 0.81) !important;;
+    border-radius: 12px !important;;
+    border: 1px solid rgba(255, 255, 255, 0.125) !important;;
+  }
+
+  .accordion-button:not(.collapsed) {
+    background-color: rgba(69, 173, 69, 0.8)!important;
+  }
+
+  .accordion-button:focus {
+    z-index: 3;
+    border-color: none!important;
+    outline: 0;
+    box-shadow: rgba(55, 193, 55, 0.8)!important;
+}
+
+button:hover{
+    background-color: white!important;
+  color: black!important;
+  transition: all 200ms;
+}

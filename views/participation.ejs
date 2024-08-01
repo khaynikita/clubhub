@@ -1,0 +1,185 @@
+
+
+
+<%- layout('/boilerplate/boilerplate2.ejs') %>
+<style>
+    main{
+        /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn2kAOK0TC0huw2KnPOqfw9jWub7EQapFcEFQrKo31UQ&s'); */
+        background-image: url('https://i.pinimg.com/736x/1e/16/d2/1e16d2b2aa467ee7325a4ecc8e8b8d6a.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .glass{
+        backdrop-filter: blur(21px) saturate(187%) !important;
+    -webkit-backdrop-filter: blur(21px) saturate(187%) !important;
+    background-color: rgba(195, 187, 187, 0.69) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(209, 213, 219, 0.3) !important;
+    }
+
+</style>
+
+<main style="padding: 8% 0;" class="container-fluid">
+    <div class="bg-white text-black py-3 px-4 rounded container glass bg-dark" >
+    <h1 class="border-bottom border-dark">Participate Event</h1>
+    <form action="/participate/<%=event._id%>/new" method="POST" class="needs-validation" novalidate>
+        <div class="py-3 px-2">
+            <p class="h4">Event: </p>
+            <%- include('./partials/flash.ejs') %>
+            <div class="row justify-content-around mb-3">
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="event_name" class="form-label">Event Name: </label>
+                        <input type="text" id="event_name" name='event[event_name]' class="form-control" value="<%=event.event_name %>" readonly="readonly"  required>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="event_club" class="form-label">Event Club: </label>
+                        <input type="text" id="event_club" name='event[event_club]' class="form-control" value="<%=event.event_club.name %>" disabled required>
+                        <input type="hidden" id="event_club" name='event[event_club]' class="form-control" value="<%=event.event_club._id %>"  required>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row justify-content-around mb-3">
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="event_id" class="form-label">Event Id: </label>
+                        <input type="text" id="event_id" name='event_id' class="form-control" value="<%=event.id %>" readonly="readonly"  required>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="event_date" class="form-label">Event Club: </label>
+                        <input type="date" id="event_id" name='event[event_date]' class="form-control" value="<%=date %>" readonly="readonly"  required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-3 px-2">
+            <p class="h4">Details: </p>
+            <div class="row justify-content-around mb-3">
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name: </label>
+                        <input type="text" id="name" name='name' class="form-control"  required >
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="class" class="form-label">Class: </label>
+                        <input type="text" id="class" name='class' class="form-control" required >
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row justify-content-around mb-3">
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="semester" class="form-label">Semester: </label>
+                        <input type="text" id="semester" name='semester' class="form-control" required >
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="rollno" class="form-label">Roll no: </label>
+                        <input type="text" id="rollno" name='roll_no' class="form-control"  required>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-around mb-3">
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email: </label>
+                        <input type="email" id="email" name='email' class="form-control" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone number: </label>
+                        <input type="text" id="phone" name='phone' class="form-control"  required>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-3 px-2 d-flex flex-column">
+            <p class="h4">Members: </p>
+            <div class="mb-3 row justify-content-center">
+                <div class="col-11">
+                    <label for="numberofteammembers" class="form-label">Total Members: <span class="py-3 value1 text-white fw-bold"></span></label>
+                    <input type="range" class="form-range" id="numberofteammembers" name="numberofteammembers" min="<%= event.event_details.min_member_range %>" max="<%= event.event_details.max_member_range %>" required >
+                </div>
+            </div>
+            <div class="row justify-content-between mb-3 member_name">
+                
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+        
+    </form>
+</div>
+</main>
+
+<script>
+  const value1 = document.querySelector(".value1");
+    const range1 = document.querySelector("#numberofteammembers")
+    const members = document.querySelector(".member_name")
+    
+    range1.addEventListener('input',()=>{
+        value1.innerHTML = range1.value;
+    })
+    range1.addEventListener('change',()=>{
+        members.innerHTML=""
+    //    setTimeout(()=>{
+            for(let i=0;i<range1.value;i++){
+                const div1 = document.createElement('div')
+                div1.classList.add('col-5')
+                const div2 = document.createElement('div')
+                div2.classList.add('form-group','mb-2')
+                div1.append(div2)
+
+                const label  = document.createElement('label')
+                label.setAttribute('for',`name${i+1}`)
+                label.classList.add('form-label')
+                label.innerText=`Member ${i+1}`
+                div2.append(label)
+
+                const input = document.createElement('input')
+                input.setAttribute('type',`text`)
+                input.setAttribute('id',`name${i+1}`)
+                input.setAttribute('name',`participation_members[${i}]`)
+                input.setAttribute('required','')
+                input.classList.add('form-control')
+                div2.append(input)
+
+                console.log(div1)
+                members.append(div1)
+            }
+    //    },500)
+        
+    })
+
+
+
+
+</script>

@@ -1,0 +1,30 @@
+<% layout('./boilerplate/boilerplate2.ejs')%>
+<div class="div container-md d-flex justify-content-center" style="padding-top: 10%;" >
+    <main class="bg-white px-5 py-4 rounded w-75 ">
+        <%- include('../partials/flash.ejs')%>
+    <h1 class="text-dark mb-4">Log In</h1>
+    <form action="/register" method="POST" class="needs-validation" novalidate>
+        <div class="mb-3 " >
+            <label for="username" class="form-label text-black">Username:</label>
+            <input type="text" name="username" id="username" class="form-control" required >
+        </div>
+        <div class="mb-3 ">
+            <label for="password" class="form-label text-black">Password:</label>
+            <input type="password" name="password" id="password"class="form-control" required>
+        </div>
+        <div class="mb-3" >
+            <label for="email" class="form-label text-black">Email:</label>
+            <input type="email" name="email" id="email"class="form-control" required>
+        </div>
+        <select class="form-select" aria-label="Default select example" name="club">
+            <option >Select Your Club:</option>
+            <option value="technical">Technical</option>
+            <option value="sports">Sports</option>
+            <option value="eco">Eco</option>
+            <option value="cultural">Cultural</option>
+          </select>
+        <button class=" btn btn-lg btn-success w-100 my-4">Log In</button>
+    </form>
+    </main>
+
+</div>

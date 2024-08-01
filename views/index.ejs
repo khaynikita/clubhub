@@ -1,0 +1,169 @@
+<%- layout('/boilerplate/boilerplate.ejs') %>
+  <div id="nav">
+
+    <img src="/images/bciit.png">
+    <a class="navlink">HOME</a>
+    <a class="navlink" href="/#about-us">ABOUT</a>
+    <a class="navlink" href="/#green-div">JOIN</a>
+    <a class="navlink" href="/#page3">EVENTS</a>
+    <a class="navlink" href="/#footer">CONTACT</a>
+    <div class=" w-100 d-flex justify-content-end">
+        <% if (currentUser) { %>
+          <a class="navlink  px-3" href="/logout">LOGOUT</a>
+          <a class="navlink  px-3" href="/user">USER</a>
+        <%}else{%>
+          <a class="navlink px-3 " href="/login">LOGIN</a>
+          <a class="navlink  px-3" href="/register">REGISTER</a>
+        <%}%>
+    </div>
+  </div>
+  <!-- <div id="cursor"></div>
+    <div id="cursor-blur"></div> -->
+
+  <video autoplay loop muted src="/images/event_video.mp4" style="opacity: 1.5;"></video>
+
+  <div id="main">
+    <div id="page1">
+      <h2>WELCOME TO BCIIT</h2>
+      <h1>CLUBS HUB</h1>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa non ipsam ducimus veritatis quos pariatur saepe
+        delectus repellat similique officiis debitis, explicabo cum. </p>
+    </div>
+    <div id="page2">
+      <div id="scroller">
+        <div id="scroller-in">
+          <h4>HOME</h4>
+          <h4>ABOUT</h4>
+          <h4>JOIN</h4>
+          <h4>EVENTS</h4>
+          <h4>CONTACT</h4>
+        </div>
+        <div id="scroller-in">
+          <h4>HOME</h4>
+          <h4>ABOUT</h4>
+          <h4>JOIN</h4>
+          <h4>EVENTS</h4>
+          <h4>CONTACT</h4>
+        </div>
+
+      </div>
+      <div id="about-us">
+        <img src="/images/about1.jpg" alt="img">
+        <div id="about-us-in">
+          <h3>ABOUT US</h3>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi dolorum facere maiores alias delectus,
+            illum tempora non adipisci omnis minus voluptas doloribus officiis c.</p>
+        </div>
+        <img src="/images/about2.jpg" alt="img">
+      </div>
+      <div id="cards-container">
+        <div class="card" id="card1">
+          <div class="overlay">
+            <h4>Eco-Social Club</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum itaque aspernatur at</p>
+            <a class="button" href="/eco">know more</a>
+          </div>
+        </div>
+        <div class="card" id="card2">
+          <div class="overlay">
+            <h4>Cultural Club</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum itaque aspernatur at</p>
+            <a class="button" href="/cultural">know more</a>
+          </div>
+        </div>
+        <div class="card" id="card3">
+          <div class="overlay">
+            <h4>Technical Club</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum itaque aspernatur at</p>
+            <a class="button" href="/technical">know more</a>
+          </div>
+        </div>
+        <div class="card" id="card4">
+          <div class="overlay">
+            <h4>Sports</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum itaque aspernatur at</p>
+            <a class="button" href="/sports">know more</a>
+          </div>
+        </div>
+      </div>
+      <div id="green-div">
+        <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg" alt="" />
+        <h4>
+          "BE CONNECTED- Join Our Group"
+          <a class="button" href="/join"> Join Us</a>
+        </h4>
+
+        <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg" alt="" />
+      </div>
+    </div>
+    <div id="page3">
+
+      <img src="/images/tech.jpg" alt="img">
+      <div id="jugaad">
+        <h4>EXPLORE OUR CLUBS EVENT</h4>
+        <p>"Stay up-to-date with the latest happenings in our college clubs! Our interactive showcases a diverse range
+          of events, including eco-social initiatives, cultural celebrations, sports competitions, and technical
+          workshops. Plan your schedule, join exciting activities, and connect with like-minded peers."</p>
+
+        <a id="adjust" class="button" href="/event">Open</a>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div id="footer">
+    <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-footer.svg" alt="" />
+    <div id="f1">
+      <img src="/images/bciit.png" alt="" />
+    </div>
+
+    <div id="f3">
+      <h3>Send us a Message</h3>
+      <form style="width: 26rem;">
+        <!-- Name input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="form4Example1">Name</label>
+          <input type="text" id="form4Example1" class="form-control" />
+        </div>
+
+        <!-- Email input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="form4Example2">Email address</label>
+          <input type="email" id="form4Example2" class="form-control" />
+        </div>
+
+        <!-- Message input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="form4Example3">Message</label>
+          <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+        </div>
+
+        <!-- Checkbox -->
+        <div class="form-check d-flex justify-content-center mb-4">
+          <input class="form-check-input me-2" type="checkbox" value="" id="form4Example4" checked />
+          <label class="form-check-label" for="form4Example4">
+            Send me a copy of this message
+          </label>
+        </div>
+
+        <!-- Submit button -->
+        <button data-mdb-ripple-init type="button" class=" button btn bg-white btn-block mb-4 w-100">Send</button>
+      </form>
+    </div>
+    <!-- <div id="f4">
+          <h4>
+            A20, SIDCUP BYPASS <br />
+            CHISLEHURST <br />
+            KENT <br />
+            BR7 6RP <br />
+            TEL: 0208 309 0181 <br />
+            GET DIRECTIONS <br />
+          </h4>
+        </div>
+      </div>
+    </div> -->
+
+
+
+  </div>

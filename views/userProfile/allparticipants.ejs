@@ -1,0 +1,66 @@
+<%- layout('./boilerplate/boilerplate3') %>
+
+<main>
+    <div class="px-3 py-5 h3 mt-3 bg-success text-white">Members :<span class="text-capitalize"><%= Clubname %></span> Club </div>
+
+    <section class="my-3 px-4">
+        <table class="table  table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Roll No</th>
+                  <th scope="col">Class</th>
+                </tr>
+              </thead>
+            <tbody>
+            <% for( let index = 0; index < participants.length; index++ ) { %>
+                <tr>
+                    <th scope="row"><%=index+1 %></th>
+                    <td><%=participants[index].name%> </td>
+                    <td><%=participants[index].roll_no%></td>
+                    <td><%=participants[index].class%>  <%=participants[index].semester%></td>
+                    <td><button class="btn btn-sm btn-info" id="btn">Details</button></td>
+                </tr> 
+                <tr class="details d-none">
+                    <td></td>
+                    <td>Phone: <%=participants[index].phone%></td>
+                    <td>Email: <%=participants[index].email%></td>
+                    <td></td>
+                    <td></td>
+                    <!-- <tr>
+                        <td>Team Members: <%=// participants.participation_members %></td>
+                    </tr> -->
+                </tr> 
+                <tr class="member-details d-none ">
+                    <td class="text-end">Team members: </td>
+                    <% participants[index].participation_members.forEach(mem => { %>
+                        <td class=""><%=mem%></td>
+                    <% }) %>
+                    <td></td>
+                </tr>
+                <br>
+            <% } %>
+              
+            </tbody>
+          </table>
+        
+    </section>
+
+</main>
+
+<script>
+  const btn = document.querySelectorAll('#btn')
+  const details = document.querySelectorAll('.details')
+  const memberdetails = document.querySelectorAll('.member-details')
+
+  console.log(btn)
+  console.log(details)
+  for(let x = 0; x<btn.length;x++){
+    btn[x].addEventListener('click',()=>{
+      details[x].classList.toggle('d-none')
+      memberdetails[x].classList.toggle('d-none')
+    })
+  }
+
+</script>

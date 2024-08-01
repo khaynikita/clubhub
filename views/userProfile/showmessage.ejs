@@ -1,0 +1,44 @@
+<%- layout('./boilerplate/boilerplate3') %>
+<style>
+    .bg{
+        background-image: url('https://i.pinimg.com/736x/49/0d/b5/490db5b74cbe0b5c269ac38cf68b9e25.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: .5em;
+    }
+</style>
+
+<main>
+    <div class="px-3 py-5 h3 mt-3 bg-danger text-white">Messages: </div>
+
+    <section class="my-3 px-4">
+        <% msg.forEach(x => { %>
+            <div class="row bg text-white py-3 my-3">
+                <div class="col-8">
+                    <div class=" border-bottom border-white">
+                        <p class="text-capitalize h3">Title: <%=x.title%></p>
+                        <p class="h5">Author: <%=x.author.username%></p>
+                        <p class="text-white"><%=x.date%></p>
+                    </div>
+                    <div class="">
+                        <p>
+                            <%=x.data%>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex justify-content-end align-items-center">
+                    <div class="px-3">
+                        <a href="/user/message/<%=x._id%>/edit" class="btn btn-lg btn-warning">Edit</a>
+                    </div>
+                    <div class="px-3">
+                        <form action="/user/message/<%=x._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-lg btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        <% }) %>
+    </section>
+
+</main>

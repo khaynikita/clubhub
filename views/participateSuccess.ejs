@@ -1,0 +1,89 @@
+<%- layout('/boilerplate/boilerplate2.ejs') %>
+<style>
+    main{
+        /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn2kAOK0TC0huw2KnPOqfw9jWub7EQapFcEFQrKo31UQ&s'); */
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJPsICGuaYjae5wnfVAejKu1vFvCBiDkAN3g&s');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+
+    .glass{
+        backdrop-filter: blur(21px) saturate(187%) !important;
+    -webkit-backdrop-filter: blur(21px) saturate(187%) !important;
+    background-color: rgba(195, 187, 187, 0.69) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(209, 213, 219, 0.3) !important;
+    }
+</style>
+<main style="padding: 8% 0;" class="container-fluid h-100">
+    <div class="container glass py-3 px-4 " >
+        <div class="w-100 d-flex ">
+            <div class="w-50 d-flex flex-column justify-content-between">
+                <h1 >Thank You!! <br> For Your Participation!</h1>
+                <a href="/event/<%= data.event.event_id%>" class="btn btn-success mx-3">Back to Event Page!</a>
+            </div>
+            
+            <table class="table table-striped table-dark table-hover w-75">
+                  <tr>
+                    <th scope="row">Participation Id:</th>
+                    <td colspan="5"><%= data.id%></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Name:</th>
+                    <td colspan="5"><%= data.name%></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Class:</th>
+                    <td colspan="5"><%= data.class%></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Semester:</th>
+                    <td colspan="5"><%= data.semester%></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Roll_no:</th>
+                    <td colspan="5"><%= data.roll_no%></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Email:</th>
+                    <td colspan="5"><%= data.email%></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Phone Number:</th>
+                    <td colspan="5"><%= data.phone%></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Event Name: </th>
+                    <td colspan="5"><%= data.event.event_name%></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Event ID: </th>
+                    <td colspan="5"><%= data.event_id%></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Event Club: </th>
+                    <td colspan="5"><%= club%></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Event Date: </th>
+                    <td colspan="5"><%= data.event.event_date%></td>
+                  </tr>
+                  
+                  <tr>
+                    <th scope="row">Total Team Members:</th>
+                    <td colspan="5"><%= data.numberofteammembers%></td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Team Members:</th>
+                    <% data.participation_members.forEach(element => { %>
+                        <td><%= element%></td>
+                    <% }) %>
+                    
+                  </tr>
+              </table>
+        </div>
+        
+    </div>
+</main>

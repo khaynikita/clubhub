@@ -1,0 +1,43 @@
+<%- layout('./boilerplate/boilerplate3') %>
+<style>
+    .bg{
+        background-image: url('https://i.pinimg.com/736x/49/0d/b5/490db5b74cbe0b5c269ac38cf68b9e25.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: .5em;
+    }
+</style>
+
+<main>
+    <div class="px-3 py-5 h3 mt-3 bg-danger text-white">Member Request : <span class="text-capitalize"><%= Clubname %></span> Club </div>
+
+    <section class="my-3 px-4">
+        <% ClubMember.forEach(x => { %>
+            <div class="row bg text-white py-3 my-3">
+                <div class="col-3  border-end d-flex justify-content-center align-items-center  h-auto">
+                    <%= x.first_name %> <%= x.last_name %> 
+                </div>
+                <div class="col-8">
+                    <p class="">Class: <%= x.class %> | Sem: <%= x.semester %>  </p>
+                    <p>Roll No: <%= x.roll_no %> | Email: <%= x.email %>  </p>
+                    <p>Number: <%= x.phone %></p>
+                    <p class="py-2"><%= x.exp %> </p>
+                </div>
+                <div class="col-1 my-auto">
+                    <div class="my-3">
+                        <form action="/user/member/<%=x._id%>/approve?_method=PATCH" method="POST" >
+                            <button class="btn btn-lg btn-success">Accept</button>
+                        </form>
+                    </div>
+                    <div class="my-3">
+                        <form action="/user/member/<%=x._id%>/decline?_method=DELETE" method="POST">
+                            <button class="btn btn-lg btn-danger">Decline</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        <% }) %>
+    </section>
+
+</main>

@@ -1,0 +1,103 @@
+<%- layout('/boilerplate/boilerplate2.ejs') %>
+<style>
+    main{
+        /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn2kAOK0TC0huw2KnPOqfw9jWub7EQapFcEFQrKo31UQ&s'); */
+        background-image: url('https://img.freepik.com/free-photo/abstract-multi-colored-wave-pattern-shiny-flowing-modern-generated-by-ai_188544-15588.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100vh !important;
+    }
+
+    .glass{
+        backdrop-filter: blur(21px) saturate(187%) !important;
+    -webkit-backdrop-filter: blur(21px) saturate(187%) !important;
+    background-color: rgba(195, 187, 187, 0.69) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(209, 213, 219, 0.3) !important;
+    }
+</style>
+<main style="padding: 8% 0;" class="container-fluid">
+    <div class="container glass py-3 px-4">
+    <div class="container my-3 border border-secondary border-rounded py-3 d-flex justify-content-around align-items-center" style="background-color: rgba(0, 0, 0, 0.2);">
+        <form action="/event" method="get" class="d-flex align-items-center justify-content-between w-75">
+          <label for="club" class="px-2 h4">Filter by Club: </label>
+          <select class="form-select w-75" aria-label="Default select example" name="event_club">
+            <option <%= selectedClub=='All'?"selected":"" %> value="All">All</option>
+            <option <%= selectedClub=="technical"?"selected":"" %> value="technical">Technical</option>
+            <option <%= selectedClub=="sports"?"selected":"" %> value="sports">Sports</option>
+            <option <%= selectedClub=="eco"?"selected":"" %> value="eco">Eco</option>
+            <option <%= selectedClub=="cultural"?"selected":"" %> value="cultural">Cultural</option>
+          </select>
+          <button type="submit" class="btn btn-outline-light btn-rounded">
+            Filter
+          </button>
+        </form>
+
+        <% if(currentUser){ %>
+        <div class="add border-start text-center px-5">
+            <a href="/event/new" class="btn btn-outline-light btn-rounded bg-danger">Add Events</a>
+        </div>
+        <% } %>
+    </div>
+    <p class="h5 text-white border-bottom pb-3">Future Events: </p>
+    <div class="row justify-content-between justify-content-md-around pb-5">
+        <% for( let x of future) { %>
+            <div class=" col-12 col-md-5 bg-purple p-0 gy-3">
+                <div class="row">
+                    <% if (x.image) { %>
+                        <div class="col-12 col-md-4" ><img src="<%= x.image.path %>" class="img-fluid  " style="height:250px; aspect-ratio: 3/2; object-fit: cover; object-position: center;"></div>
+                    <% } %>
+                    <div class="col-12 col-md-8 px-2 py-3">
+                        <p class="Event_name h3 text-uppercase">
+                            <%= x.event_name %> <span>Club</span>
+                        </p>
+                        <p class="club lead text-capitalize">
+                            <%= x.event_club.name %>
+                        </p>
+                        <p class="">Date: <span><%= `${x.event_date.getFullYear()}-${x.event_date.getMonth()+1}-${x.event_date.getDate()}`  %></span></p>
+                        <div class="d-flex justify-content-between pe-3">
+                            <p><a href="/event/<%= x.id %>" class="text-decoration-none text-white  btn btn-success">🔗Event Details</a></p>
+                            <% if(currentUser){ %>
+                                <form  action="/event/<%= x._id%>?_method=DELETE" method="POST">
+                                    <button class="btn btn-danger text-white" type="submit">Delete Event</button>
+                                </form>
+                            <%}  %>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        <% } %>
+    </div>
+    <p class="h5 text-white mt-3 border-bottom pb-3">Past Events: </p>
+    <div class="row justify-content-between justify-content-md-around">
+        <% for( let x of past) { %>
+            <div class=" col-12 col-md-5 bg-purple p-0 gy-3">
+                <div class="row">
+                    <% if (x.image) { %>
+                        <div class="col-12 col-md-4" ><img src="<%= x.image.path %>" class="img-fluid w-100 h-100 " style="object-fit: cover; object-position: center;"></div>
+                    <% } %>
+                    <div class="col-12 col-md-8 px-2 py-3">
+                        <p class="Event_name h3 text-uppercase">
+                            <%= x.event_name %> 
+                        </p>
+                        <p class="club lead text-capitalize">
+                            <%= x.event_club.name %> <span>Club</span>
+                        </p>
+                        <p class="">Date: <span><%= `${x.event_date.getFullYear()}-${x.event_date.getMonth()+1}-${x.event_date.getDate()}`  %></span></p>
+                        <div class="d-flex justify-content-between pe-3">
+                            <p><a href="/event/<%= x.id %>" class="text-decoration-none text-white btn btn-success">🔗Event Details</a></p>
+
+                            <% if(currentUser && currentUser.club.equals(x.event_club._id)){ %>
+                                <form  action="/event/<%= x._id%>?_method=DELETE" method="POST">
+                                    <button class="btn btn-danger text-white" type="submit">Delete Event</button>
+                                </form>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+</main>

@@ -1,0 +1,146 @@
+<%- layout('/boilerplate/boilerplate2.ejs') %>
+    <style>
+        main {
+            /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn2kAOK0TC0huw2KnPOqfw9jWub7EQapFcEFQrKo31UQ&s'); */
+            background-image: url('https://img.freepik.com/free-photo/abstract-multi-colored-wave-pattern-shiny-flowing-modern-generated-by-ai_188544-15588.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .glass {
+            backdrop-filter: blur(21px) saturate(187%) !important;
+            -webkit-backdrop-filter: blur(21px) saturate(187%) !important;
+            background-color: rgba(195, 187, 187, 0.69) !important;
+            border-radius: 12px !important;
+            border: 1px solid rgba(209, 213, 219, 0.3) !important;
+        }
+    </style>
+
+    <main style="padding: 8% 0;" class="container-fluid">
+        <div class="bg-white text-black py-3 px-4 rounded container glass bg-dark">
+            <h1 class="border-bottom border-dark">Add New Event</h1>
+            <form action="/event" method="POST" class="needs-validation" enctype="multipart/form-data" >
+                <div class="py-3 px-2">
+                    <p class="h4">Event: </p>
+                    <%- include('./partials/flash.ejs') %>
+                    <div class="row justify-content-around mb-3">
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="event_name" class="form-label">Event Name: </label>
+                                <input type="text" id="event_name" name='event_name' class="form-control"
+                                    required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="event_date" class="form-label">Event Date: </label>
+                                <input type="date" id="event_date" name="event_date" class="form-control"
+                                    required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-around">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <!-- <input type="text" id="image" name="image" class="form-control" required> -->
+                                <label for="formFileSm" class="form-label">Event Logo</label>
+                                <input class="form-control form-control-sm" id="formFileSm" type="file" name="logo" >
+                                <div class="valid-feedback">
+                                    Looks good!
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5"></div>
+                    </div>
+                </div>
+                <div class="py-3 px-2 d-flex flex-column">
+                    <p class="h4">Details: </p>
+                    <div class="mb-3 row justify-content-center">
+                        <div class="col-5 ">
+                            <label for="formFileSm" class="form-label">Event Poster</label>
+                                <input class="form-control form-control-sm" id="formFileSm" type="file" name="poster">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                  </div>
+                        </div>
+                        <div class="col-3 ">
+                            <label for="member_range1" class="form-label">Minimum Members Allowded: <span
+                                    class="py-3 value1 text-white fw-bold"></span></label>
+                            <input type="range" class="form-range" id="member_range1"
+                                name="event_details[min_member_range]" min="0" max="60" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-3 ">
+                            <label for="member_range2" class="form-label">Maximum Members Allowded: <span
+                                    class="py-3 value2 text-white fw-bold"></span></label>
+                            <input type="range" class="form-range" id="member_range2"
+                                name="event_details[max_member_range]" min="1" max="60" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-around mb-3">
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="event_coordinator_1" class="form-label">Event Coordinator 1: </label>
+                                <input type="text" id="event_coordinator_1"
+                                    name="event_details[event_coordinator_1]" class="form-control" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="form-group">
+                                <label for="event_coordinator_2" class="form-label">Event Coordinator 2: </label>
+                                <input type="text" id="event_coordinator_2"
+                                    name="event_details[event_coordinator_2]" class="form-control" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row justify-content-around">
+                        <div class="col-11 ">
+                            <div class="mb-3 row justify-content-around"></div>
+                            <label for="event_description" class="form-label">Event Description:</label>
+                            <textarea name="event_details[event_description]" id="event_description" cols="30"
+                                rows="10" class="form-control" required></textarea>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const value1 = document.querySelector(".value1");
+        const range1 = document.querySelector("#member_range1")
+
+        range1.addEventListener('input', () => {
+            value1.innerHTML = range1.value;
+        })
+
+        const value2 = document.querySelector(".value2");
+        const range2 = document.querySelector("#member_range2")
+
+        range2.addEventListener('input', () => {
+            value2.innerHTML = range2.value;
+        })
+
+    </script>

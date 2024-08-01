@@ -1,0 +1,35 @@
+<%- layout('/boilerplate/boilerplate2.ejs') %>
+<style>
+    .bg{
+        background-image: url('https://i.pinimg.com/564x/99/2e/1f/992e1fb9cead4c1d9604304cea672c79.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: .5em;
+    }
+    /* *{
+        letter-spacing: 3px;
+    } */
+</style>
+
+<main style="padding: 6% 0;">
+    <div class="h4 text-white text-center">All Approved Members</div>
+    <section class="my-3 px-4">
+        <div class="row">
+            <% clubinfo.forEach(ele => { %>
+                <div class="col-3 ">
+                    <div class="h5 text-capitalize bg-white text-dark text-center py-3 rounded"> <%= ele.name %> Club : <span class="h6"> <%= ele.clubCoordinator.name%> </span></div>
+                    <!-- <div class="row"> -->
+
+                        <% data.forEach(memb => { %>
+                            <% if (memb.club.name == ele.name) { %>
+                                <div class="w-100 bg py-4 px-1 text-dark d-flex justify-content-around my-3"><%= memb.first_name %> <%= memb.last_name %><span class="h6"> <%= memb.class %> <%= memb.semester %>th </span></div>
+                            <% } %>
+
+                        <% }) %>
+                    <!-- </div> -->
+                </div>
+            <% }) %>
+            
+           
+        </div>
+</main>

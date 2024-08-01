@@ -1,0 +1,32 @@
+<%- layout('/boilerplate/boilerplate2.ejs') %>
+<style>
+    .bg{
+        background-image: url('https://i.pinimg.com/564x/90/fc/74/90fc74b1663c7b54e3d24b3dd7113f94.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: .5em;
+    }
+    /* *{
+        letter-spacing: 3px;
+    } */
+</style>
+
+<main style="padding: 6% 0;">
+    <section class="my-3 px-4 container-md">
+        <% data.forEach(x => { %>
+            <div class="row bg text-white py-5 my-4 px-4">
+                <div class="col-8">
+                    <p class="h3 text-capitalize"><%= x.name %> CLub</p>
+                    <p class="h6"><%= x.clubCoordinator.name %></p>
+                </div>
+                <div class="col-md-3 d-flex justify-content-end align-items-center">
+                    <div class="px-3">
+                        <a href="/join/<%= x._id %>/add" class="btn btn-lg btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                            <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1"/>
+                          </svg></a>
+                    </div>
+                </div>
+
+            </div>
+        <% }) %>
+</main>

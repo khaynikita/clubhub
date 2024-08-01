@@ -1,0 +1,97 @@
+<%- layout('/boilerplate/boilerplate2.ejs') %>
+<style>
+  main{
+      /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn2kAOK0TC0huw2KnPOqfw9jWub7EQapFcEFQrKo31UQ&s'); */
+      background-image: url('https://img.freepik.com/free-vector/gradient-pink-liquid-background_23-2149112212.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+
+  }
+
+  .glass{
+      backdrop-filter: blur(21px) saturate(187%) !important;
+  -webkit-backdrop-filter: blur(21px) saturate(187%) !important;
+  background-color: rgba(195, 187, 187, 0.69) !important;
+  border-radius: 12px 0 0 12px !important;
+  border: 1px solid rgba(209, 213, 219, 0.3) !important;
+  }
+
+</style>
+
+  <main style="padding: 8% 0; height: 85vh;" class="container-fluid">
+    <div class="glass container">
+    <div class="row  rounded">
+      <div class="col-12 col-md-5 d-flex justify-content-center ">
+        <% if (event.event_details.event_Poster) { %>
+          <img src="<%= event.event_details.event_Poster.path%>" alt="" class="img-fluid" height="400px"
+            style="aspect-ratio: 1/1; object-fit: cover;">
+        <% } %>
+      </div>
+      <div class="col-12 col-md-7 pt-3 bg-dark rounded-end-3">
+        <p class="h1 border-bottom d-flex align-items-center justify-content-between text-capitalize">
+          <%= event.event_name%>
+          <% if(currentUser && currentUser.club.equals(event.event_club._id)){ %>
+          <a class="btn btn-success" href="/event/<%= event.id%>/edit"> Edit Event</a>
+          <% } %>
+        </p>
+
+        <p class="text-capitalize mb-0">
+          <%= event.event_club.name%> Club
+        </p>
+        <p>
+          Date: <span><%= `${event.event_date.getFullYear()}-${event.event_date.getMonth()+1}-${event.event_date.getDate()}`  %>
+        </p>
+
+        <div class="border-top py-3">
+          <div class="h5 ">Coordinators :</div>
+          <p class="mb-0">Club Coordinator: <%= event.event_details.club_coordinator.name%> </p>
+          <p class="mb-0">Event Coordinator:  <%= event.event_details.event_coordinator_1%>  ,  <%= event.event_details.event_coordinator_2%></p>
+        </div>
+
+        <p class="border-top ">
+          <p class="h5">Description</p>
+          <%= event.event_details.event_description%>
+        </p>
+        
+        <p class="border-top">
+          <p class="h5 ">Partiipation Allowded</p>
+          <p class="mb-0">Minimum Member Allowded: <%= event.event_details.min_member_range%></p>
+          <p>Minimum Member Allowded: <%= event.event_details.max_member_range%></p>
+        </p>
+       
+      </div>
+    </div>
+  </div>
+  </main>
+  <section class="footer ">
+    <!-- Footer -->
+    <footer class="text-center text-white mt-auto">
+      <!-- Grid container -->
+      <div class="container p-2 pb-0">
+        <!-- Section: CTA -->
+         <%if (event.event_date>date) { %>
+          <section class="">
+            <p class="d-flex justify-content-center align-items-center">
+              <span class="me-3 ">Tap Here! to be part of this event</span>
+              <a data-mdb-ripple-init href="/event/<%= event.id %>/participate" class="btn btn-outline-light btn-rounded">
+                Participate Now!
+              </a>
+            </p>
+          </section>
+         <%} %>
+        
+        <!-- Section: CTA -->
+      </div>
+      <!-- Grid container -->
+  
+      <!-- Copyright -->
+      <div class="text-center mt-2 p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2020 Copyright:
+        <a class="text-white" href="https://github.com/khaynikita">khaynikita</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </section>
+
+ 

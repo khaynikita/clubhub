@@ -1,0 +1,51 @@
+<%- layout('./boilerplate/boilerplate3') %>
+
+<main>
+    <div class="px-3 py-5 h3 mt-3 bg-success text-white">Members :<span class="text-capitalize"><%= Clubname %></span> Club </div>
+
+    <section class="my-3 px-4">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Roll No</th>
+                  <th scope="col">Class</th>
+                </tr>
+              </thead>
+            <tbody>
+            <% for( let index = 0; index < ApprovedMember.length; index++ ) { %>
+                <tr>
+                    <th scope="row"><%= index+1 %></th>
+                    <td><%=ApprovedMember[index].first_name%>  <%=ApprovedMember[index].last_name%></td>
+                    <td><%=ApprovedMember[index].roll_no%></td>
+                    <td><%=ApprovedMember[index].class%>  <%=ApprovedMember[index].semester%></td>
+                    <td><button class="btn btn-sm btn-info" id="btn">Details</button></td>
+                </tr> 
+                <tr class="member-details d-none">
+                    <td></td>
+                    <td>Phone: <%=ApprovedMember[index].phone%></td>
+                    <td>Email: <%=ApprovedMember[index].email%></td>
+                </tr> 
+            <% } %>
+              
+            </tbody>
+          </table>
+        
+    </section>
+
+</main>
+
+<script>
+  const btn = document.querySelectorAll('#btn')
+  const details = document.querySelectorAll('.member-details')
+
+  console.log(btn)
+  console.log(details)
+  for(let x = 0; x<btn.length;x++){
+    btn[x].addEventListener('click',()=>{
+      details[x].classList.toggle('d-none')
+    })
+  }
+
+</script>
